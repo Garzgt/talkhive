@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 export default function ChatStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={ROUTES.ROOMS}     component={RoomList} />
+      <Stack.Screen name="RoomList"          component={RoomList} />
       <Stack.Screen name={ROUTES.CHAT_ROOM} component={ChatRoom} />
       <Stack.Screen name={ROUTES.ROOM_INFO} component={RoomInfo} />
     </Stack.Navigator>

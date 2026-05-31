@@ -1,0 +1,176 @@
+import { StyleSheet } from "react-native";
+import { colors } from "../../styles/colors";
+import { fonts, fontSizes } from "../../styles/fonts";
+import { spacing, radius } from "../../styles/spacing";
+
+export const styles = StyleSheet.create({
+  safe: {
+    flex:            1,
+    backgroundColor: colors.background,
+  },
+  header: {
+    flexDirection:     "row",
+    alignItems:        "center",
+    paddingHorizontal: spacing.md,
+    paddingVertical:   spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  headerTitle: {
+    flex:       1,
+    fontFamily: fonts.semiBold,
+    fontSize:   fontSizes.base,
+    color:      colors.text,
+    textAlign:  "center",
+  },
+  headerSpacer: {
+    width: 34,
+  },
+  loaderWrap: {
+    flex:           1,
+    justifyContent: "center",
+    alignItems:     "center",
+  },
+  scrollContent: {
+    paddingBottom: spacing["2xl"],
+  },
+  topSection: {
+    alignItems:        "center",
+    paddingHorizontal: spacing.xl,
+    paddingTop:        spacing["2xl"],
+  },
+  avatar: {
+    width:           80,
+    height:          80,
+    borderRadius:    radius.lg,
+    backgroundColor: colors.primary,
+    justifyContent:  "center",
+    alignItems:      "center",
+    marginBottom:    spacing.lg,
+  },
+  name: {
+    fontFamily:   fonts.bold,
+    fontSize:     fontSizes.xl,
+    color:        colors.text,
+    marginBottom: spacing.sm,
+    textAlign:    "center",
+  },
+  desc: {
+    fontFamily:   fonts.regular,
+    fontSize:     fontSizes.base,
+    color:        colors.textSecondary,
+    textAlign:    "center",
+    lineHeight:   fontSizes.base * 1.5,
+    marginBottom: spacing.lg,
+  },
+  statRow: {
+    flexDirection: "row",
+    alignItems:    "center",
+    gap:           spacing.sm,
+    marginTop:     spacing.md,
+  },
+  statText: {
+    fontFamily: fonts.medium,
+    fontSize:   fontSizes.base,
+    color:      colors.textSecondary,
+  },
+  ownerBadge: {
+    flexDirection:     "row",
+    alignItems:        "center",
+    gap:               spacing.xs,
+    marginTop:         spacing.lg,
+    paddingVertical:   spacing.xs + 2,
+    paddingHorizontal: spacing.md,
+    backgroundColor:   colors.primaryLight,
+    borderRadius:      radius.full,
+  },
+  ownerText: {
+    fontFamily: fonts.medium,
+    fontSize:   fontSizes.sm,
+    color:      colors.primary,
+  },
+  requestsSection: {
+    marginTop:         spacing.xl,
+    paddingHorizontal: spacing.base,
+  },
+  sectionTitle: {
+    fontFamily:   fonts.semiBold,
+    fontSize:     fontSizes.base,
+    color:        colors.text,
+    marginBottom: spacing.md,
+  },
+  noRequests: {
+    fontFamily:      fonts.regular,
+    fontSize:        fontSizes.sm,
+    color:           colors.textMuted,
+    textAlign:       "center",
+    paddingVertical: spacing.md,
+  },
+  requestRow: {
+    flexDirection:     "row",
+    alignItems:        "center",
+    paddingVertical:   spacing.sm,
+    gap:               spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  requestAvatar: {
+    width:           36,
+    height:          36,
+    borderRadius:    radius.full,
+    backgroundColor: colors.primary,
+    justifyContent:  "center",
+    alignItems:      "center",
+  },
+  requestInitial: {
+    fontFamily: fonts.bold,
+    fontSize:   fontSizes.sm,
+    color:      "#fff",
+  },
+  requestName: {
+    flex:       1,
+    fontFamily: fonts.medium,
+    fontSize:   fontSizes.base,
+    color:      colors.text,
+  },
+  requestActions: {
+    flexDirection: "row",
+    gap:           spacing.sm,
+  },
+  approveBtn: {
+    width:           32,
+    height:          32,
+    borderRadius:    radius.full,
+    backgroundColor: colors.success,
+    justifyContent:  "center",
+    alignItems:      "center",
+  },
+  rejectBtn: {
+    width:           32,
+    height:          32,
+    borderRadius:    radius.full,
+    backgroundColor: colors.error,
+    justifyContent:  "center",
+    alignItems:      "center",
+  },
+  leaveBtn: {
+    flexDirection:   "row",
+    alignItems:      "center",
+    justifyContent:  "center",
+    gap:             spacing.sm,
+    marginTop:       spacing.xl,
+    marginHorizontal: spacing.xl,
+    borderWidth:     1.5,
+    borderColor:     colors.error,
+    borderRadius:    radius.md,
+    paddingVertical: spacing.md,
+  },
+  leaveBtnDisabled: {
+    opacity: 0.5,
+  },
+  leaveText: {
+    fontFamily: fonts.semiBold,
+    fontSize:   fontSizes.base,
+    color:      colors.error,
+  },
+});

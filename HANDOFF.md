@@ -114,16 +114,22 @@ RLS disabled. Used by ForgotPassword 3-step flow.
 - `check_email_exists(p_email text) → bool` — checks if email exists in auth.users (SECURITY DEFINER)
 - `reset_password_with_otp(p_email, p_otp, p_new_password)` — verifies OTP + calls `auth.update_user_password_by_id` (SECURITY DEFINER, uses pgcrypto via `extensions.crypt`)
 
-### Tables NOT yet created (needed for Rooms):
-```sql
--- rooms: id (uuid PK), name (text), description (text), created_by (uuid FK profiles),
---        is_public (bool default true), avatar_url (text), created_at (timestamptz)
--- room_members: room_id (uuid FK), user_id (uuid FK), role (text default 'member'),
---               joined_at (timestamptz)
--- messages: id (uuid PK), room_id (uuid FK), user_id (uuid FK), content (text),
---           type (text default 'text'), created_at (timestamptz), edited_at (timestamptz)
+### Tables (already exist in prod — see `rules/querytodb/databaseschema.txt` for full schema):
+
 ```
-These need to be created in Supabase SQL Editor before building those screens.
+rooms:        id, name, description, is_private (bool DEFAULT false), created_by, created_at, updated_at
+room_members: id (own PK), room_id, user_id, role ('owner'|'admin'|'member'), joined_at
+messages:     id, room_id, sender_id, body, is_edited, is_deleted, created_at, updated_at
+```
+
+⚠️ Key gotchas vs what HANDOFF originally said:
+- rooms uses `is_private` (not `is_public`) — fetch with `.eq("is_private", false)`
+- messages uses `sender_id` (not `user_id`) and `body` (not `content`)
+- room_members has its own `id` uuid PK (not a composite PK)
+- rooms has NO `avatar_url` column
+- role CHECK constraint: `'owner' | 'admin' | 'member'`
+
+Still needed in Supabase: trigger `handle_new_room()` (auto-add creator as 'owner') + RLS policies.
 
 ---
 

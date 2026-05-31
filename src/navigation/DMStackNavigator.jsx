@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 export default function DMStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={ROUTES.DM_INBOX}       component={DMInbox} />
+      <Stack.Screen name="DMList"                  component={DMInbox} />
       <Stack.Screen name={ROUTES.DM_CONVERSATION} component={DMConversation} />
     </Stack.Navigator>
   );

@@ -41,6 +41,12 @@ CREATE TABLE public.messages (
   CONSTRAINT messages_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id),
   CONSTRAINT messages_sender_id_fkey FOREIGN KEY (sender_id) REFERENCES public.profiles(id)
 );
+CREATE TABLE public.password_resets (
+  email text NOT NULL,
+  otp text NOT NULL,
+  expires_at timestamp with time zone NOT NULL,
+  CONSTRAINT password_resets_pkey PRIMARY KEY (email)
+);
 CREATE TABLE public.profiles (
   id uuid NOT NULL,
   username text NOT NULL UNIQUE,
@@ -78,6 +84,7 @@ CREATE TABLE public.room_members (
   user_id uuid NOT NULL,
   role text NOT NULL DEFAULT 'member'::text CHECK (role = ANY (ARRAY['owner'::text, 'admin'::text, 'member'::text])),
   joined_at timestamp with time zone NOT NULL DEFAULT now(),
+  status text NOT NULL DEFAULT 'approved'::text CHECK (status = ANY (ARRAY['pending'::text, 'approved'::text])),
   CONSTRAINT room_members_pkey PRIMARY KEY (id),
   CONSTRAINT room_members_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id),
   CONSTRAINT room_members_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id)
