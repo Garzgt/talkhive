@@ -1,0 +1,115 @@
+import { StyleSheet } from "react-native";
+import { colors } from "../../../styles/colors";
+import { spacing, radius } from "../../../styles/spacing";
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  avatarPreview: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: colors.primary,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginBottom: spacing.lg,
+  },
+  avatarInitial: {
+    fontSize: 32,
+    fontWeight: "700",
+    color: "#fff",
+  },
+  heading: {
+    fontSize: 26,
+    fontWeight: "700",
+    color: colors.text,
+    textAlign: "center",
+    marginBottom: spacing.xs,
+  },
+  subheading: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: "center",
+    marginBottom: spacing["2xl"],
+  },
+  fieldGroup: {
+    marginBottom: spacing.md,
+  },
+  label: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: colors.text,
+    marginBottom: spacing.xs,
+  },
+  hint: {
+    fontSize: 11,
+    color: colors.textMuted,
+    marginTop: 4,
+  },
+  readonlyRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.surfaceAlt,
+    borderWidth: 1.5,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.base,
+    paddingVertical: 14,
+    gap: spacing.sm,
+  },
+  readonlyText: {
+    flex: 1,
+    fontSize: 15,
+    color: colors.textSecondary,
+  },
+  inputRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.surface,
+    borderWidth: 1.5,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.base,
+    gap: spacing.sm,
+  },
+  inputField: {
+    flex: 1,
+    paddingVertical: 14,
+    fontSize: 15,
+    color: colors.text,
+  },
+  charCount: {
+    fontSize: 11,
+    color: colors.textMuted,
+    marginTop: 4,
+    textAlign: "right",
+  },
+  btn: {
+    flexDirection: "row",
+    backgroundColor: colors.primary,
+    borderRadius: radius.md,
+    paddingVertical: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: 52,
+    marginTop: spacing.xl,
+    elevation: 4,
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+  },
+  btnDisabled: {
+    opacity: 0.5,
+    elevation: 0,
+    shadowOpacity: 0,
+  },
+  btnText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#fff",
+    letterSpacing: 0.4,
+  },
+});

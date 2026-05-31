@@ -1,0 +1,1 @@
+this databaseschema.txt i paste on the supabase 1 time please provide a query in chat if change happen.

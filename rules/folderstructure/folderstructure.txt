@@ -1,0 +1,296 @@
+📦TalkHive
+ ┣ 📂assets
+ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📜Poppins-Regular.ttf
+ ┃ ┃ ┣ 📜Poppins-Medium.ttf
+ ┃ ┃ ┣ 📜Poppins-SemiBold.ttf
+ ┃ ┃ ┗ 📜Poppins-Bold.ttf
+ ┃ ┣ 📂icons
+ ┃ ┃ ┣ 📜app-icon.png
+ ┃ ┃ ┣ 📜adaptive-icon.png
+ ┃ ┃ ┗ 📜favicon.png
+ ┃ ┣ 📂images
+ ┃ ┃ ┣ 📜splash.png
+ ┃ ┃ ┣ 📜default-avatar.png
+ ┃ ┃ ┗ 📜empty-chat.png
+ ┃ ┗ 📂lottie
+ ┃   ┣ 📜typing-indicator.json
+ ┃   ┗ 📜empty-state.json
+ ┣ 📂src
+ ┃ ┣ 📂animations
+ ┃ ┃ ┣ 📜easing.js
+ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┣ 📜motionTokens.js
+ ┃ ┃ ┣ 📜transitions.js
+ ┃ ┃ ┣ 📜useFadeIn.js
+ ┃ ┃ ┣ 📜useReducedMotion.js
+ ┃ ┃ ┣ 📜useShimmerPulse.js
+ ┃ ┃ ┗ 📜useStaggerIn.js
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂animated
+ ┃ ┃ ┃ ┣ 📜AnimatedScreenWrapper.jsx
+ ┃ ┃ ┃ ┣ 📜AnimatedScreenWrapper.styles.js
+ ┃ ┃ ┃ ┣ 📜FadeInSection.jsx
+ ┃ ┃ ┃ ┣ 📜FadeInSection.styles.js
+ ┃ ┃ ┃ ┣ 📜StaggeredList.jsx
+ ┃ ┃ ┃ ┗ 📜StaggeredList.styles.js
+ ┃ ┃ ┣ 📂feedback
+ ┃ ┃ ┃ ┣ 📜InlineMessage.jsx
+ ┃ ┃ ┃ ┣ 📜InlineMessage.styles.js
+ ┃ ┃ ┃ ┣ 📜RetryBanner.jsx
+ ┃ ┃ ┃ ┣ 📜RetryBanner.styles.js
+ ┃ ┃ ┃ ┣ 📜StatusChip.jsx
+ ┃ ┃ ┃ ┗ 📜StatusChip.styles.js
+ ┃ ┃ ┣ 📂chat
+ ┃ ┃ ┃ ┣ 📜MessageBubble.jsx
+ ┃ ┃ ┃ ┣ 📜MessageBubble.styles.js
+ ┃ ┃ ┃ ┣ 📜TypingIndicator.jsx
+ ┃ ┃ ┃ ┣ 📜TypingIndicator.styles.js
+ ┃ ┃ ┃ ┣ 📜MessageInput.jsx
+ ┃ ┃ ┃ ┣ 📜MessageInput.styles.js
+ ┃ ┃ ┃ ┣ 📜ReactionPicker.jsx
+ ┃ ┃ ┃ ┗ 📜ReactionPicker.styles.js
+ ┃ ┃ ┣ 📜Avatar.jsx
+ ┃ ┃ ┣ 📜Avatar.styles.js
+ ┃ ┃ ┣ 📜Badge.jsx
+ ┃ ┃ ┣ 📜Badge.styles.js
+ ┃ ┃ ┣ 📜Button.jsx
+ ┃ ┃ ┣ 📜Button.styles.js
+ ┃ ┃ ┣ 📜Card.jsx
+ ┃ ┃ ┣ 📜Card.styles.js
+ ┃ ┃ ┣ 📜Divider.jsx
+ ┃ ┃ ┣ 📜Divider.styles.js
+ ┃ ┃ ┣ 📜EmptyState.jsx
+ ┃ ┃ ┣ 📜EmptyState.styles.js
+ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┣ 📜Input.jsx
+ ┃ ┃ ┣ 📜Input.styles.js
+ ┃ ┃ ┣ 📜LoadingSpinner.jsx
+ ┃ ┃ ┣ 📜LoadingSpinner.styles.js
+ ┃ ┃ ┣ 📜Modal.jsx
+ ┃ ┃ ┣ 📜Modal.styles.js
+ ┃ ┃ ┣ 📜OnlineIndicator.jsx
+ ┃ ┃ ┣ 📜OnlineIndicator.styles.js
+ ┃ ┃ ┣ 📜SearchBar.jsx
+ ┃ ┃ ┣ 📜SearchBar.styles.js
+ ┃ ┃ ┣ 📜SkeletonLoader.jsx
+ ┃ ┃ ┣ 📜SkeletonLoader.styles.js
+ ┃ ┃ ┣ 📜Toast.jsx
+ ┃ ┃ ┗ 📜Toast.styles.js
+ ┃ ┣ 📂config
+ ┃ ┃ ┣ 📜constants.js
+ ┃ ┃ ┣ 📜env.js
+ ┃ ┃ ┣ 📜featureFlags.js
+ ┃ ┃ ┣ 📜routes.js
+ ┃ ┃ ┗ 📜supabase.js
+ ┃ ┣ 📂context
+ ┃ ┃ ┣ 📜AuthContext.jsx
+ ┃ ┃ ┣ 📜NetworkContext.jsx
+ ┃ ┃ ┣ 📜PresenceContext.jsx
+ ┃ ┃ ┣ 📜ThemeContext.jsx
+ ┃ ┃ ┗ 📜ToastContext.jsx
+ ┃ ┣ 📂hooks
+ ┃ ┃ ┣ 📜useAuthSession.js
+ ┃ ┃ ┣ 📜useDebouncedSearch.js
+ ┃ ┃ ┣ 📜useInfiniteScroll.js
+ ┃ ┃ ┣ 📜useKeyboard.js
+ ┃ ┃ ┣ 📜useNetworkStatus.js
+ ┃ ┃ ┣ 📜useRealtimeMessages.js
+ ┃ ┃ ┣ 📜useRealtimePresence.js
+ ┃ ┃ ┣ 📜useRealtimeTyping.js
+ ┃ ┃ ┣ 📜useSkeletonDelay.js
+ ┃ ┃ ┗ 📜useToast.js
+ ┃ ┣ 📂navigation
+ ┃ ┃ ┣ 📜AppNavigator.jsx
+ ┃ ┃ ┣ 📜AppNavigator.styles.js
+ ┃ ┃ ┣ 📜AuthNavigator.jsx
+ ┃ ┃ ┣ 📜AuthNavigator.styles.js
+ ┃ ┃ ┣ 📜ChatStackNavigator.jsx
+ ┃ ┃ ┣ 📜ChatStackNavigator.styles.js
+ ┃ ┃ ┣ 📜DMStackNavigator.jsx
+ ┃ ┃ ┣ 📜DMStackNavigator.styles.js
+ ┃ ┃ ┣ 📜MainTabNavigator.jsx
+ ┃ ┃ ┗ 📜MainTabNavigator.styles.js
+ ┃ ┣ 📂screens
+ ┃ ┃ ┣ 📂Auth
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜AuthHeader.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜AuthHeader.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜PasswordStrengthBar.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜PasswordStrengthBar.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜authService.js
+ ┃ ┃ ┃ ┣ 📜ForgotPassword.jsx
+ ┃ ┃ ┃ ┣ 📜ForgotPassword.styles.js
+ ┃ ┃ ┃ ┣ 📜Login.jsx
+ ┃ ┃ ┃ ┣ 📜Login.styles.js
+ ┃ ┃ ┃ ┣ 📜Register.jsx
+ ┃ ┃ ┃ ┗ 📜Register.styles.js
+ ┃ ┃ ┣ 📂Rooms
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜CreateRoomModal.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜CreateRoomModal.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜RoomCard.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜RoomCard.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜RoomFilterTabs.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜RoomFilterTabs.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜roomService.js
+ ┃ ┃ ┃ ┣ 📜RoomList.jsx
+ ┃ ┃ ┃ ┗ 📜RoomList.styles.js
+ ┃ ┃ ┣ 📂Chat
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜AttachmentPreview.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜AttachmentPreview.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜ChatHeader.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜ChatHeader.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜ChatMemberList.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜ChatMemberList.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜DateSeparator.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜DateSeparator.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜MessageActionSheet.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜MessageActionSheet.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┣ 📜chatRealtimeService.js
+ ┃ ┃ ┃ ┃ ┗ 📜chatService.js
+ ┃ ┃ ┃ ┣ 📜ChatRoom.jsx
+ ┃ ┃ ┃ ┣ 📜ChatRoom.styles.js
+ ┃ ┃ ┃ ┣ 📜RoomInfo.jsx
+ ┃ ┃ ┃ ┗ 📜RoomInfo.styles.js
+ ┃ ┃ ┣ 📂DirectMessages
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜DMConversationCard.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜DMConversationCard.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜DMHeader.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜DMHeader.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜NewDMModal.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜NewDMModal.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┣ 📜dmRealtimeService.js
+ ┃ ┃ ┃ ┃ ┗ 📜dmService.js
+ ┃ ┃ ┃ ┣ 📜DMConversation.jsx
+ ┃ ┃ ┃ ┣ 📜DMConversation.styles.js
+ ┃ ┃ ┃ ┣ 📜DMInbox.jsx
+ ┃ ┃ ┃ ┗ 📜DMInbox.styles.js
+ ┃ ┃ ┣ 📂Profile
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜AvatarUploader.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜AvatarUploader.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜ProfileInfoCard.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜ProfileInfoCard.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜UpdateProfileForm.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜UpdateProfileForm.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜profileService.js
+ ┃ ┃ ┃ ┣ 📜Profile.jsx
+ ┃ ┃ ┃ ┗ 📜Profile.styles.js
+ ┃ ┃ ┣ 📂ProfileSetup
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜AvatarPickerStep.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜AvatarPickerStep.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜UsernameStep.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜UsernameStep.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜profileSetupService.js
+ ┃ ┃ ┃ ┣ 📜ProfileSetup.jsx
+ ┃ ┃ ┃ ┗ 📜ProfileSetup.styles.js
+ ┃ ┃ ┣ 📂Notifications
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜NotificationCard.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜NotificationCard.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜NotificationFilterTabs.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜NotificationFilterTabs.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜notificationService.js
+ ┃ ┃ ┃ ┣ 📜NotificationInbox.jsx
+ ┃ ┃ ┃ ┗ 📜NotificationInbox.styles.js
+ ┃ ┃ ┣ 📂Search
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜MessageSearchResult.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜MessageSearchResult.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜UserSearchResult.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜UserSearchResult.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜searchService.js
+ ┃ ┃ ┃ ┣ 📜Search.jsx
+ ┃ ┃ ┃ ┗ 📜Search.styles.js
+ ┃ ┃ ┣ 📂Settings
+ ┃ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┃ ┣ 📜AppearanceSettingItem.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜AppearanceSettingItem.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜NotificationSettingItem.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜NotificationSettingItem.styles.js
+ ┃ ┃ ┃ ┃ ┣ 📜PrivacySettingItem.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜PrivacySettingItem.styles.js
+ ┃ ┃ ┃ ┣ 📂services
+ ┃ ┃ ┃ ┃ ┗ 📜settingsService.js
+ ┃ ┃ ┃ ┣ 📜Settings.jsx
+ ┃ ┃ ┃ ┗ 📜Settings.styles.js
+ ┃ ┃ ┗ 📂Onboarding
+ ┃ ┃   ┣ 📂components
+ ┃ ┃   ┃ ┣ 📜OnboardingPager.jsx
+ ┃ ┃   ┃ ┣ 📜OnboardingPager.styles.js
+ ┃ ┃   ┃ ┣ 📜OnboardingSlide.jsx
+ ┃ ┃   ┃ ┗ 📜OnboardingSlide.styles.js
+ ┃ ┃   ┣ 📂services
+ ┃ ┃   ┃ ┗ 📜onboardingService.js
+ ┃ ┃   ┣ 📜WelcomeTour.jsx
+ ┃ ┃   ┗ 📜WelcomeTour.styles.js
+ ┃ ┣ 📂services
+ ┃ ┃ ┣ 📂core
+ ┃ ┃ ┃ ┣ 📜apiClient.js
+ ┃ ┃ ┃ ┣ 📜authSessionService.js
+ ┃ ┃ ┃ ┣ 📜networkService.js
+ ┃ ┃ ┃ ┣ 📜realtimeService.js
+ ┃ ┃ ┃ ┣ 📜storageService.js
+ ┃ ┃ ┃ ┗ 📜uploadService.js
+ ┃ ┃ ┣ 📂notifications
+ ┃ ┃ ┃ ┣ 📜pushTokenService.js
+ ┃ ┃ ┃ ┗ 📜pushNotificationService.js
+ ┃ ┃ ┗ 📂presence
+ ┃ ┃   ┗ 📜presenceService.js
+ ┃ ┣ 📂state
+ ┃ ┃ ┣ 📜authStore.js
+ ┃ ┃ ┣ 📜chatStore.js
+ ┃ ┃ ┣ 📜dmStore.js
+ ┃ ┃ ┣ 📜notificationStore.js
+ ┃ ┃ ┣ 📜presenceStore.js
+ ┃ ┃ ┗ 📜roomStore.js
+ ┃ ┣ 📂styles
+ ┃ ┃ ┣ 📜colors.js
+ ┃ ┃ ┣ 📜commonStyles.js
+ ┃ ┃ ┣ 📜fonts.js
+ ┃ ┃ ┣ 📜index.js
+ ┃ ┃ ┣ 📜motion.js
+ ┃ ┃ ┣ 📜shadows.js
+ ┃ ┃ ┗ 📜spacing.js
+ ┃ ┣ 📂utils
+ ┃ ┃ ┣ 📜constants.js
+ ┃ ┃ ┣ 📜dateTime.js
+ ┃ ┃ ┣ 📜formatters.js
+ ┃ ┃ ┣ 📜helpers.js
+ ┃ ┃ ┣ 📜storage.js
+ ┃ ┃ ┣ 📜uploadUtils.js
+ ┃ ┃ ┗ 📜validation.js
+ ┃ ┣ 📂__tests__
+ ┃ ┃ ┣ 📂e2e
+ ┃ ┃ ┃ ┣ 📜auth.e2e.js
+ ┃ ┃ ┃ ┗ 📜chat.e2e.js
+ ┃ ┃ ┣ 📂integration
+ ┃ ┃ ┃ ┣ 📜chatService.test.js
+ ┃ ┃ ┃ ┣ 📜dmService.test.js
+ ┃ ┃ ┃ ┗ 📜roomService.test.js
+ ┃ ┃ ┗ 📂unit
+ ┃ ┃   ┣ 📜formatters.test.js
+ ┃ ┃   ┣ 📜validation.test.js
+ ┃ ┃   ┗ 📜dateTime.test.js
+ ┃ ┗ 📜AppBootstrap.jsx
+ ┣ 📜.env
+ ┣ 📜.env.example
+ ┣ 📜.gitignore
+ ┣ 📜app.json
+ ┣ 📜App.jsx
+ ┣ 📜babel.config.js
+ ┣ 📜eas.json
+ ┣ 📜package.json
+ ┗ 📜tsconfig.json
