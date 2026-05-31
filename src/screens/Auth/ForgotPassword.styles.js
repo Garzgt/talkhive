@@ -23,6 +23,25 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  dotsRow: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: spacing.sm,
+    marginRight: 40,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: colors.border,
+  },
+  dotActive: {
+    backgroundColor: colors.primary,
+    width: 20,
+    borderRadius: 4,
+  },
 
   scroll: {
     flexGrow: 1,
@@ -125,6 +144,58 @@ export const styles = StyleSheet.create({
     fontWeight: "700",
     color: colors.textInverse,
     letterSpacing: 0.4,
+  },
+
+  // Code input
+  codeInput: {
+    textAlign: "center",
+    fontSize: 28,
+    fontWeight: "700",
+    letterSpacing: 10,
+  },
+  resendText: {
+    fontSize: 13,
+    color: colors.primary,
+    fontWeight: "600",
+    marginTop: spacing.md,
+    textAlign: "center",
+  },
+  resendBanner: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: spacing.xs,
+    backgroundColor: colors.primaryLight,
+    borderRadius: radius.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.base,
+    marginTop: spacing.md,
+  },
+  resendBannerText: {
+    fontSize: 13,
+    color: colors.primaryDark,
+    fontWeight: "600",
+  },
+
+  // Password row with eye toggle
+  passwordRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.surface,
+    borderWidth: 1.5,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+  },
+  passwordInput: {
+    flex: 1,
+    paddingHorizontal: spacing.base,
+    paddingVertical: 14,
+    fontSize: 15,
+    color: colors.text,
+  },
+  eyeBtn: {
+    padding: spacing.sm,
+    paddingRight: spacing.base,
   },
 
   // Success state

@@ -4,9 +4,9 @@ import { supabase } from "../config/supabase";
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [session, setSession]   = useState(null);
-  const [profile, setProfile]   = useState(null);
-  const [loading, setLoading]   = useState(true);
+  const [session,  setSession]  = useState(null);
+  const [profile,  setProfile]  = useState(null);
+  const [loading,  setLoading]  = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {

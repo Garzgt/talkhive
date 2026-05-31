@@ -13,14 +13,18 @@ import { isValidEmail } from "../../utils/validation";
 import AlertModal from "./components/AlertModal";
 import { styles } from "./Login.styles";
 
-export default function Login({ navigation }) {
+export default function Login({ navigation, route }) {
   const [email,        setEmail]        = useState("");
   const [password,     setPassword]     = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading,      setLoading]      = useState(false);
   const [fieldErrors,  setFieldErrors]  = useState({});
   const [focusedField, setFocusedField] = useState(null);
-  const [modal,        setModal]        = useState({ visible: false, title: "", message: "" });
+  const [modal,        setModal]        = useState(
+    route?.params?.resetSuccess
+      ? { visible: true, title: "Password Updated!", message: "Your password has been reset. Sign in with your new password." }
+      : { visible: false, title: "", message: "" }
+  );
 
   const clearFieldError = (field) =>
     setFieldErrors((prev) => ({ ...prev, [field]: "" }));
@@ -191,10 +195,9 @@ export default function Login({ navigation }) {
         </KeyboardAvoidingView>
       </SafeAreaView>
 
-      {/* Error popup */}
       <AlertModal
         visible={modal.visible}
-        type="error"
+        type={route?.params?.resetSuccess && modal.visible ? "success" : "error"}
         title={modal.title}
         message={modal.message}
         onClose={() => setModal((m) => ({ ...m, visible: false }))}

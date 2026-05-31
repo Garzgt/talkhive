@@ -12,11 +12,18 @@
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      },
+      "package": "com.garzgt.talkhive"
     },
     "plugins": [
       "expo-secure-store",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "982c08e9-032f-4e59-8226-fe97019b70b1"
+      }
+    },
+    "owner": "garzgt"
   }
 }
