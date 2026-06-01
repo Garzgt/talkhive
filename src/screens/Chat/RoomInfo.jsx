@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../../context/AuthContext";
 import { supabase } from "../../config/supabase";
-import { leaveRoom, fetchPendingRequests, approveRequest, rejectRequest, kickMember } from "../Rooms/services/roomService";
+import { leaveRoom, fetchPendingRequests, approveRequest, rejectRequest, kickMember, deleteRoom } from "../Rooms/services/roomService";
 import { styles } from "./RoomInfo.styles";
 
 export default function RoomInfo({ navigation, route }) {
@@ -92,6 +92,30 @@ export default function RoomInfo({ navigation, route }) {
     ]);
   }
 
+  function confirmDelete() {
+    Alert.alert(
+      "Delete Room",
+      `Delete "${roomName}"? This will remove all messages and members permanently.`,
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            setLeaving(true);
+            try {
+              await deleteRoom(roomId);
+              navigation.popToTop();
+            } catch (e) {
+              Alert.alert("Error", e.message || "Could not delete room.");
+              setLeaving(false);
+            }
+          },
+        },
+      ]
+    );
+  }
+
   function confirmLeave() {
     Alert.alert("Leave Room", `Leave ${roomName}?`, [
       { text: "Cancel", style: "cancel" },
@@ -128,6 +152,7 @@ export default function RoomInfo({ navigation, route }) {
         </View>
       ) : (
         <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+          <View style={styles.topCard}>
           <View style={styles.topSection}>
             <View style={styles.avatar}>
               <Ionicons name="chatbubbles" size={36} color="#fff" />
@@ -152,6 +177,7 @@ export default function RoomInfo({ navigation, route }) {
                 <Text style={styles.ownerText}>You own this room</Text>
               </View>
             )}
+          </View>
           </View>
 
           {isOwner && (
@@ -211,23 +237,26 @@ export default function RoomInfo({ navigation, route }) {
             </View>
           )}
 
-          {!isOwner && (
-            <TouchableOpacity
-              style={[styles.leaveBtn, leaving && styles.leaveBtnDisabled]}
-              onPress={confirmLeave}
-              activeOpacity={0.8}
-              disabled={leaving}
-            >
-              {leaving ? (
-                <ActivityIndicator color="#DC2626" />
-              ) : (
-                <>
-                  <Ionicons name="exit-outline" size={18} color="#DC2626" />
-                  <Text style={styles.leaveText}>Leave Room</Text>
-                </>
-              )}
-            </TouchableOpacity>
-          )}
+          <TouchableOpacity
+            style={[styles.leaveBtn, leaving && styles.leaveBtnDisabled]}
+            onPress={isOwner ? confirmDelete : confirmLeave}
+            activeOpacity={0.8}
+            disabled={leaving}
+          >
+            {leaving ? (
+              <ActivityIndicator color="#DC2626" />
+            ) : isOwner ? (
+              <>
+                <Ionicons name="trash-outline" size={18} color="#DC2626" />
+                <Text style={styles.leaveText}>Delete Room</Text>
+              </>
+            ) : (
+              <>
+                <Ionicons name="exit-outline" size={18} color="#DC2626" />
+                <Text style={styles.leaveText}>Leave Room</Text>
+              </>
+            )}
+          </TouchableOpacity>
         </ScrollView>
       )}
     </SafeAreaView>

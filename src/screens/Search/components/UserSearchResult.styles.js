@@ -7,11 +7,22 @@ export const styles = StyleSheet.create({
   row: {
     flexDirection:     "row",
     alignItems:        "center",
-    paddingHorizontal: spacing.base,
+    backgroundColor:   colors.background,
+    marginHorizontal:  spacing.base,
+    marginVertical:    5,
     paddingVertical:   spacing.md,
+    paddingHorizontal: spacing.md,
+    borderRadius:      radius.xl,
     gap:               spacing.md,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    elevation:         2,
+    shadowColor:       "#000",
+    shadowOffset:      { width: 0, height: 1 },
+    shadowOpacity:     0.07,
+    shadowRadius:      4,
+  },
+  avatarWrap: {
+    width:  46,
+    height: 46,
   },
   avatar: {
     width:           46,
@@ -20,6 +31,11 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     justifyContent:  "center",
     alignItems:      "center",
+  },
+  avatarImage: {
+    width:        46,
+    height:       46,
+    borderRadius: radius.full,
   },
   initials: {
     fontFamily: fonts.bold,

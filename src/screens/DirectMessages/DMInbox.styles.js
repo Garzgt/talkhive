@@ -1,19 +1,21 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../styles/colors";
 import { fonts, fontSizes } from "../../styles/fonts";
-import { spacing } from "../../styles/spacing";
+import { spacing, radius } from "../../styles/spacing";
 
 export const styles = StyleSheet.create({
   safe: {
     flex:            1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.surface,
   },
   header: {
     flexDirection:     "row",
     justifyContent:    "space-between",
     alignItems:        "center",
     paddingHorizontal: spacing.base,
-    paddingVertical:   spacing.sm,
+    paddingTop:        spacing.sm,
+    paddingBottom:     spacing.md,
+    backgroundColor:   colors.background,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
   },
@@ -23,7 +25,12 @@ export const styles = StyleSheet.create({
     color:      colors.text,
   },
   composeBtn: {
-    padding: spacing.xs,
+    width:           36,
+    height:          36,
+    borderRadius:    18,
+    backgroundColor: colors.primary,
+    justifyContent:  "center",
+    alignItems:      "center",
   },
   centerWrap: {
     flex:           1,
@@ -31,6 +38,15 @@ export const styles = StyleSheet.create({
     alignItems:     "center",
     gap:            spacing.md,
     paddingBottom:  spacing["5xl"],
+  },
+  emptyIconWrap: {
+    width:           80,
+    height:          80,
+    borderRadius:    40,
+    backgroundColor: colors.surfaceAlt,
+    justifyContent:  "center",
+    alignItems:      "center",
+    marginBottom:    spacing.sm,
   },
   emptyTitle: {
     fontFamily: fonts.semiBold,
@@ -43,5 +59,6 @@ export const styles = StyleSheet.create({
     color:             colors.textMuted,
     textAlign:         "center",
     paddingHorizontal: spacing["2xl"],
+    lineHeight:        fontSizes.sm * 1.6,
   },
 });

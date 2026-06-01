@@ -97,3 +97,11 @@ export async function kickMember(membershipId) {
     .eq("id", membershipId);
   if (error) throw error;
 }
+
+export async function deleteRoom(roomId) {
+  const { error } = await supabase
+    .from("rooms")
+    .delete()
+    .eq("id", roomId);
+  if (error) throw error;
+}

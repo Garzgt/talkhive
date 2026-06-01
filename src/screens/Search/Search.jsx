@@ -85,12 +85,16 @@ export default function Search({ navigation }) {
         </View>
       ) : searched && results.length === 0 ? (
         <View style={styles.centerWrap}>
-          <Ionicons name="person-outline" size={48} color="#D1D5DB" />
+          <View style={styles.emptyIconWrap}>
+            <Ionicons name="person-outline" size={36} color="#D1D5DB" />
+          </View>
           <Text style={styles.emptyText}>No users found for "{query}"</Text>
         </View>
       ) : !searched ? (
         <View style={styles.centerWrap}>
-          <Ionicons name="search-outline" size={48} color="#D1D5DB" />
+          <View style={styles.emptyIconWrap}>
+            <Ionicons name="search-outline" size={36} color="#D1D5DB" />
+          </View>
           <Text style={styles.emptyText}>Search for people to message</Text>
         </View>
       ) : (
@@ -100,7 +104,8 @@ export default function Search({ navigation }) {
           renderItem={({ item }) => (
             <UserSearchResult user={item} onPress={() => handleSelectUser(item)} />
           )}
-          estimatedItemSize={70}
+          estimatedItemSize={74}
+          contentContainerStyle={styles.listContent}
         />
       )}
     </SafeAreaView>

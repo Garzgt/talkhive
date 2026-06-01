@@ -1,6 +1,8 @@
 import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "../context/AuthContext";
+import { NotificationProvider } from "../context/NotificationContext";
+import { PresenceProvider } from "../context/PresenceContext";
 import { colors } from "../styles/colors";
 import AuthNavigator from "./AuthNavigator";
 import MainTabNavigator from "./MainTabNavigator";
@@ -18,7 +20,15 @@ export default function AppNavigator() {
 
   return (
     <NavigationContainer>
-      {session ? <MainTabNavigator /> : <AuthNavigator />}
+      {session ? (
+        <NotificationProvider>
+          <PresenceProvider>
+            <MainTabNavigator />
+          </PresenceProvider>
+        </NotificationProvider>
+      ) : (
+        <AuthNavigator />
+      )}
     </NavigationContainer>
   );
 }

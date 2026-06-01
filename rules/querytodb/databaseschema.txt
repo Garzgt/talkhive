@@ -38,8 +38,20 @@ CREATE TABLE public.messages (
   created_at timestamp with time zone NOT NULL DEFAULT now(),
   updated_at timestamp with time zone NOT NULL DEFAULT now(),
   CONSTRAINT messages_pkey PRIMARY KEY (id),
-  CONSTRAINT messages_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id),
-  CONSTRAINT messages_sender_id_fkey FOREIGN KEY (sender_id) REFERENCES public.profiles(id)
+  CONSTRAINT messages_sender_id_fkey FOREIGN KEY (sender_id) REFERENCES public.profiles(id),
+  CONSTRAINT messages_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id)
+);
+CREATE TABLE public.notifications (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  type text NOT NULL CHECK (type = ANY (ARRAY['join_request'::text, 'request_approved'::text, 'new_dm'::text])),
+  title text NOT NULL,
+  body text,
+  data jsonb,
+  is_read boolean NOT NULL DEFAULT false,
+  created_at timestamp with time zone NOT NULL DEFAULT now(),
+  CONSTRAINT notifications_pkey PRIMARY KEY (id),
+  CONSTRAINT notifications_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id)
 );
 CREATE TABLE public.password_resets (
   email text NOT NULL,
@@ -86,8 +98,8 @@ CREATE TABLE public.room_members (
   joined_at timestamp with time zone NOT NULL DEFAULT now(),
   status text NOT NULL DEFAULT 'approved'::text CHECK (status = ANY (ARRAY['pending'::text, 'approved'::text])),
   CONSTRAINT room_members_pkey PRIMARY KEY (id),
-  CONSTRAINT room_members_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id),
-  CONSTRAINT room_members_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id)
+  CONSTRAINT room_members_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id),
+  CONSTRAINT room_members_room_id_fkey FOREIGN KEY (room_id) REFERENCES public.rooms(id)
 );
 CREATE TABLE public.rooms (
   id uuid NOT NULL DEFAULT uuid_generate_v4(),

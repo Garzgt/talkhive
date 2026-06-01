@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./UserSearchResult.styles";
 
 export default function UserSearchResult({ user, onPress }) {
@@ -7,8 +7,14 @@ export default function UserSearchResult({ user, onPress }) {
 
   return (
     <TouchableOpacity style={styles.row} onPress={onPress} activeOpacity={0.75}>
-      <View style={styles.avatar}>
-        <Text style={styles.initials}>{initials}</Text>
+      <View style={styles.avatarWrap}>
+        {user.avatar_url ? (
+          <Image source={{ uri: user.avatar_url }} style={styles.avatarImage} />
+        ) : (
+          <View style={styles.avatar}>
+            <Text style={styles.initials}>{initials}</Text>
+          </View>
+        )}
         {user.is_online && <View style={styles.onlineDot} />}
       </View>
 

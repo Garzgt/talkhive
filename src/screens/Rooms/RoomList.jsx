@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import { View, Text, TouchableOpacity, ActivityIndicator, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlashList } from "@shopify/flash-list";
@@ -12,6 +13,7 @@ import RoomCard from "./components/RoomCard";
 import RoomFilterTabs from "./components/RoomFilterTabs";
 import CreateRoomModal from "./components/CreateRoomModal";
 import { fetchRooms, createRoom, joinRoom } from "./services/roomService";
+import { subscribeToRoomList } from "./services/roomRealtimeService";
 
 export default function RoomList({ navigation }) {
   const { profile } = useAuth();
@@ -65,10 +67,20 @@ export default function RoomList({ navigation }) {
     }
   }, [profile?.id, filter]);
 
+  const loadRoomsRef = useRef(loadRooms);
+  useEffect(() => { loadRoomsRef.current = loadRooms; }, [loadRooms]);
+
   useEffect(() => {
-    setLoading(true);
-    loadRooms();
-  }, [loadRooms]);
+    if (!profile?.id) return;
+    return subscribeToRoomList(profile.id, () => loadRoomsRef.current());
+  }, [profile?.id]);
+
+  useFocusEffect(
+    useCallback(() => {
+      setLoading(true);
+      loadRooms();
+    }, [loadRooms])
+  );
 
   function toggleSearch() {
     if (searchVisible) {
@@ -115,7 +127,9 @@ export default function RoomList({ navigation }) {
     if (loading) return null;
     return (
       <View style={styles.empty}>
-        <Ionicons name="chatbubbles-outline" size={52} color="#D1D5DB" />
+        <View style={styles.emptyIconWrap}>
+          <Ionicons name="chatbubbles-outline" size={36} color="#D1D5DB" />
+        </View>
         <Text style={styles.emptyTitle}>
           {searchQuery.trim()
             ? `No rooms match "${searchQuery}"`
@@ -145,11 +159,11 @@ export default function RoomList({ navigation }) {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.iconBtn}
+            style={styles.addBtn}
             onPress={() => setCreateVisible(true)}
             hitSlop={10}
           >
-            <Ionicons name="add" size={26} color="#111827" />
+            <Ionicons name="add" size={22} color="#fff" />
           </TouchableOpacity>
         </View>
       </View>
